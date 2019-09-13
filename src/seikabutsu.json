@@ -5,73 +5,78 @@
             "id": 0,
             "name": "Mikazuki Laisa",
             "title": "web app",
-            "imgpath": "https://pbs.twimg.com/media/EDHJbcnVAAEvlca?format=jpg&name=large",
+            "imgtitle": "web app",
+            "imgpath": "./build/seikabutsu_files/web app.jpg",
             "info": "reactで作りました"
-        },
-        {
-            "id": 3,
-            "name": "hoge a",
-            "title": "ababa a",
-            "imgpath": "https://pbs.twimg.com/media/EDIPR1OUYAAN6qt?format=jpg&name=small",
-            "info": "ababababa a"
-        },
-        {
-            "id": 3,
-            "name": "ナマズオ Copyright (C) 2010 - 2019 SQUARE ENIX CO., LTD. All Rights Reserved.",
-            "title": "KC3",
-            "imgpath": "https://pbs.twimg.com/media/D_XlAqQUcAAEXgk?format=jpg&name=small",
-            "info": "何を話すか、具体的にはもう決まっている。\nあとは調べつつスライドに起こすのみ。"
-        },
-        {
-            "id": 5,
-            "name": "てすと",
-            "title": "てすと",
-            "imgpath": "https://pbs.twimg.com/media/EDHJbcnVAAA9Ejj?format=jpg&name=large",
-            "info": "これはテスト\nこれはテスト\nこれはテスト"
         },
         {
             "id": 7,
             "name": "Mikazuki Laisa",
             "title": "成果物発表会用 web app",
-            "imgpath": "https://pbs.twimg.com/media/EDHJbcoVUAAS2Q3?format=jpg&name=large",
+            "imgtitle": "成果物発表会用 web app",
+            "imgpath": "./build/seikabutsu_files/成果物発表会用 web app.jpg",
             "info": "成果物発表会で使えそうなweb appを作りました。\n左側menu uploaderから自分の作品をアップすることができます。\n（アップしてるのは文字列だけですが）\n\nアップローダーで送信ボタンを押すと、web apiでフォームの情報をPOSTして\nサーバーに保存され、成果物一覧に載ります。\nサーバー上ではjsonで管理しています。\n\n間違えたものをアップしてしまった場合、削除することができます。\nただしこれは隠しコマンドとして実装しております。\n（削除UIを考えたり作ったりするのがめんどくさかった）\n\nこだわった点：\n・デザイン\n　CSSをそれっぽく使ったので見栄えがよい。\n・作り方\n　Reactというフレームワークを用いたことで、Reactの理解を深めることができた。\n・api\n　サーバーでのAPIの実装や、jsonでの管理等、裏ではいろいろ動いている。\n・成果物ページ\n　この文章もちゃんと改行されるようになっている。\n\n難しかった点：\n・画像のアップロード\n　画像とは配列なので、その膨大な情報をアップロードしサーバーで管理するのはとても大変\n　そこで神託により、画像をほかのサーバーにアップされているリンクから表示することにした。\n　自分のサーバーに保存しているのは、そのリンクだけなので軽い\n・React\n　HTML,CSS,jsで作ったりするよりかは簡単だと思うけれど、\n　stateやらpropsやら、それらをどう扱うか。普通に難しかった。"
         },
         {
-            "id": 5,
-            "name": "らむーね",
-            "title": "Titania",
-            "imgpath": "https://twitter.com/denx_doshisha/status/1167710775571410944/photo/2",
-            "info": "ゆうなまのパクリを作りたかった"
-        },
-        {
-            "id": 6,
-            "name": "キッシンググラミー",
-            "title": "ダンジョン伝説",
-            "imgpath": "https://lh3.googleusercontent.com/xLQG7mezMXm5ufpYJl6UQ26l54mo2Tc_Nm8fdh-tnBE5dtc2g3T7IKo7usShEJNhHG5pIaz3e7YAOKObZe4peTZ1OAs9sYdlQT3W1JCtAndqBN2629px=w673",
-            "info": "某ゼ○ダの伝説風のアクションゲーム"
-        },
-        {
-            "id": 7,
-            "name": "中野 二乃",
-            "title": "てすと",
-            "movie": "https://youtu.be/M5EFPbNgVC4",
-            "info": ""
-        },
-        {
             "id": 8,
-            "name": "かぐやさま",
-            "title": "",
-            "imgpath": "",
-            "moviepath": "%3Ciframe%20width%3D%221280%22%20height%3D%22720%22%20src%3D%22https%3A//www.youtube.com/embed/8CR32KdFD-c%22%20frameborder%3D%220%22%20allow%3D%22accelerometer%3B%20autoplay%3B%20encrypted-media%3B%20gyroscope%3B%20picture-in-picture%22%20allowfullscreen%3E%3C/iframe%3E",
+            "name": "かぐや様",
+            "title": "かぐや様",
+            "imgtitle": "kaguyasama",
+            "imgpath": "./build/seikabutsu_files/kaguyasama.jpg",
             "info": ""
         },
         {
             "id": 9,
-            "name": "しょき",
-            "title": "てすと",
-            "imgpath": "",
-            "moviepath": "<iframe width=\"1280\" height=\"720\" src=\"https://www.youtube.com/embed/8CR32KdFD-c\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+            "name": "鈴木彩門",
+            "title": "Unityちゃんクエスト",
+            "imgtitle": "unitychan_quest",
+            "imgpath": "./build/seikabutsu_files/unitychan_quest.jpg",
+            "moviepath": "",
             "info": ""
+        },
+        {
+            "id": 11,
+            "name": "ザキオ",
+            "title": "DeepLearning基礎",
+            "imgtitle": "DeepLearning_kiso",
+            "imgpath": "./build/seikabutsu_files/DeepLearning_kiso.jpg",
+            "moviepath": "",
+            "info": "ゼロから作るDeep Learning ―Pythonで学ぶディープラーニングの理論と実装に載っているものを実装して、隠れ層1層の2層のニューラルネットワークでMNISTセットの数字認識を行った。学習が進むにつれて、認識精度が上がっていっていることがグラフからわかる。"
+        },
+        {
+            "id": 12,
+            "name": "kjtr",
+            "title": "3d character",
+            "imgtitle": "3d character",
+            "imgpath": "./build/seikabutsu_files/3d character.jpg",
+            "moviepath": "",
+            "info": "不適切な内容が含まれている可能性のあるツイートです"
+        },
+        {
+            "id": 13,
+            "name": "らむーね",
+            "title": "Titania",
+            "imgtitle": "Titania",
+            "imgpath": "./build/seikabutsu_files/Titania.jpg",
+            "moviepath": "",
+            "info": "未完ですがゆうなまを目指してつくっています"
+        },
+        {
+            "id": 12,
+            "name": "キッシンググラミー",
+            "title": "ダンジョン伝説",
+            "imgtitle": "ダンジョン伝説",
+            "imgpath": "./build/seikabutsu_files/ダンジョン伝説.jpg",
+            "moviepath": "",
+            "info": "2Dアクションゲームです"
+        },
+        {
+            "id": 8,
+            "name": "てすと",
+            "title": "てすと",
+            "imgtitle": "てすと",
+            "imgpath": "./build/seikabutsu_files/てすと.jpg",
+            "info": "てすと"
         }
     ]
 }

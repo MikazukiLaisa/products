@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { bindExpression, tsExpressionWithTypeArguments } from '@babel/types';
+import illust from "./mican02.jpeg"
+const aimgpath = "./build/seikabutsu_files/"
 
 class App extends React.Component {
   constructor(props) {
@@ -88,8 +90,8 @@ class Products extends React.Component {
           this.state.list.push(
           <Contents key={i}
             title={res.contents[i].title}
-            imgpath={res.contents[i].imgpath}
-            mainpage={res.contents[i].page}
+            // imgpath={res.contents[i].imgpath}
+            // mainpage={res.contents[i].page}
             LoadMainPage={this.LoadMainPage}
             id={i}
             json={res} />);
@@ -128,9 +130,10 @@ class Contents extends React.Component {
   }
   render() {
     var id = this.props.id;
+    var imgpath2 = "https://laisa.info/seikabutsu_files/" + this.props.json.contents[id].imgtitle + ".jpg"
     return (
       <button onClick={this.handleClick} className="contents">
-        <img src={this.props.json.contents[id].imgpath} />
+        <img src={imgpath2} alt={this.props.json.contents[id].title} />
         <p>{this.props.title}</p>
       </button>
     )
@@ -138,9 +141,6 @@ class Contents extends React.Component {
 }
 
 class ProductPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount(){
     var id = this.props.id;
@@ -163,11 +163,12 @@ class ProductPage extends React.Component {
 
   render() {
     var id = this.props.id;
+    var imgpath2 = "https://laisa.info/seikabutsu_files/" + this.props.json.contents[id].imgtitle + ".jpg"
     return (
       <div className="product-page">
         <BackButton text="ホームに戻る" LoadMainPage={this.props.LoadMainPage} />
         <h1>作品名：{this.props.json.contents[id].title}</h1>
-        <img src={this.props.json.contents[id].imgpath} />
+        <img src={imgpath2} alt={this.props.json.contents[id].title}/>
         <div id="movie" />
         <p>作成者：{this.props.json.contents[id].name}</p>
         <hr />
@@ -203,25 +204,40 @@ class BackButton extends React.Component {
 class Uploader extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {file:"file名"}
+    this.handleChangeFile = this.handleChangeFile.bind(this)
+    this.onClicked = this.onClicked.bind(this)
+  }
+
+  handleChangeFile(e) {
+    this.setState({file:e.target.files.item(0)});
   }
 
   onClicked() {
-    let formData = {
-      "name": document.getElementById("name").value,
-      "title": document.getElementById("title").value,
-      "imgpath": document.getElementById("imgurl").value,
-      "moviepath":(document.getElementById("movieurl").value).replace(/\"/g, '\"\"'),
-      "info": document.getElementById("info").value
-    }
-    console.log("name is " + formData.name)
+    // let formData = {
+    //   "name": document.getElementById("name").value,
+    //   "title": document.getElementById("title").value,
+    //   "imgpath": document.getElementById("imgurl").value,
+    //   "moviepath":(document.getElementById("movieurl").value).replace(/\"/g, '\"\"'),
+    //   "info": document.getElementById("info").value,
+    //   "myFile":this.state.file
+    // }
+
+    let formData2 = new FormData()
+    formData2.append("name", document.getElementById("name").value)
+    formData2.append("title", document.getElementById("title").value)
+    formData2.append("imgpath", document.getElementById("movieurl").value.replace(/\"/g, '\"\"'))
+    formData2.append("info", document.getElementById("info").value)
+    formData2.append("myFile", this.state.file)
+
     fetch('https://laisa.info/api/data', {
     //fetch('http://localhost:3020/data', {
       mode: "cors",
       method: "POST",
-      body: JSON.stringify(formData),
+      body: formData2,
       headers: {
-        "Content-type": "application/json",
+        //"Content-typeを指定したらだめ"
+        //"Content-type": "multipart/form-data",
       }
     })
       .then(alert("送信完了しました"))
@@ -229,15 +245,17 @@ class Uploader extends React.Component {
 
   render() {
     return (
+      <div>
       <form className="uploader">
         <p>動画はあってもなくても可能</p>
         名前：<input type="text" name="name" id="name" required/><br />
         作品名：<input type="text" name="title" id="title" required/><br />
-        画像URL：<input type="url" name="url" id="imgurl" /><br />
+        画像：<input type="file" name="file" id="file" onChange={(e) => this.handleChangeFile(e)}/><br />
         動画URL：<input type="url" name="url" id="movieurl" /><br />
         説明：<textarea name="info" id="info" /><br />
         <button onClick={this.onClicked}>送信</button>
       </form>
+      </div>
     )
   }
 }
